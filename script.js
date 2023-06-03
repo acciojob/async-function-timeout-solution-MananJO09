@@ -7,6 +7,11 @@ const output = document.getElementById("output");
 async function showMessage() {
   const message = text.value;
   const delayVal = delay.value;
+	 if (!message || isNaN(delayVal) || delayVal <= 0) {
+    output.innerText = "Invalid input";
+    return;
+  }
+	
   await new Promise((resolve) => setTimeout(resolve, delayVal));
   output.innerText = message;
 }
